@@ -1,0 +1,50 @@
+type Mutation {
+
+    # Patient creates an account
+    patientSignup(
+        email: String!
+        password: String!
+        forename: String!
+        surname: String!
+    ): AuthResponse!
+
+    # GP creates an account
+    gpSignup(
+        email: String!
+        password: String!
+        forename: String!
+        surname: String!
+        practiceCode: String!
+    ): AuthResponse!
+
+    # Clerk creates an account
+    clerkSignup(
+        email: String!
+        password: String!
+        forename: String!
+        surname: String!
+    ): AuthResponse!
+
+    # Pharmacist creates an account
+    pharmacistSignup(
+        email: String!
+        password: String!
+        forename: String!
+        surname: String!
+        pharmacyName: String!
+    ): AuthResponse!
+
+    # All roles login the same way
+    login(
+        email: String!
+        password: String!
+    ): AuthResponse!
+}
+
+type AuthResponse {
+    token: String!
+    userId: String!
+    role: String!
+    forename: String!
+    message: String!
+}
